@@ -1,0 +1,26 @@
+# Tomcat server configuration
+server:
+  # The port number for the Scoder Auth application
+  port: 9200
+
+# Spring application configuration
+spring:
+  application:
+    # The name of the application for service registration and identification
+    name: scoder-auth
+  profiles:
+    # Active profile for the application (e.g., dev, prod)
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # Address of the Nacos server for service discovery
+        server-addr: 127.0.0.1:8848
+      config:
+        # Address of the Nacos server for configuration management
+        server-addr: 127.0.0.1:8848
+        # File format for Nacos configuration files
+        file-extension: yml
+        # Shared configuration file specific to the active profile
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

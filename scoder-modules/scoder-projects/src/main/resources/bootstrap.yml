@@ -1,0 +1,26 @@
+# Configuration for the Tomcat server
+server:
+  port: 9202  # Port where the application will run
+
+# Configuration for the Spring application
+spring:
+  application:
+    # Name of the application (used for service discovery and monitoring)
+    name: scoder-projects
+  profiles:
+    # Active profile determines the environment-specific settings (e.g., dev, prod)
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # Address of the Nacos server for service registration and discovery
+        server-addr: 127.0.0.1:8848
+      config:
+        # Address of the Nacos server for centralized configuration management
+        server-addr: 127.0.0.1:8848
+        # Format of the configuration files (e.g., YAML)
+        file-extension: yml
+        # Shared configuration files to load for multiple services
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          # Resolves to application-dev.yml based on the active profile

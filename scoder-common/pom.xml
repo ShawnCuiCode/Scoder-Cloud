@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.scoder</groupId>
+        <artifactId>scoder</artifactId>
+        <version>2.5.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>scoder-common-log</module>
+        <module>scoder-common-core</module>
+        <module>scoder-common-redis</module>
+        <module>scoder-common-swagger</module>
+        <module>scoder-common-security</module>
+        <module>scoder-common-datascope</module>
+        <module>scoder-common-datasource</module>
+    </modules>
+
+    <artifactId>scoder-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        scoder-common通用模块
+    </description>
+
+</project>

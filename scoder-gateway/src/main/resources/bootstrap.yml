@@ -1,0 +1,52 @@
+# Tomcat server configuration
+server:
+  # The port on which the Gateway application will run
+  port: 8080
+
+# Spring Framework configuration
+spring:
+  application:
+    # Name of the application
+    name: scoder-gateway
+  profiles:
+    # The active profile for the application (e.g., dev, prod)
+    active: dev
+  main:
+    # Allow multiple beans with the same name
+    allow-bean-definition-overriding: true
+
+  # Nacos configuration for service discovery and configuration management
+  cloud:
+    nacos:
+      discovery:
+        # Nacos server address for service registration
+        server-addr: 127.0.0.1:8848
+      config:
+        # Nacos server address for configuration management
+        server-addr: 127.0.0.1:8848
+        # Configuration file format
+        file-extension: yml
+        # List of shared configurations
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+    # Sentinel configuration for rate limiting and monitoring
+    sentinel:
+      # Enable eager initialization of Sentinel dashboard connection
+      eager: true
+      transport:
+        # Sentinel dashboard address
+        dashboard: 127.0.0.1:8718
+      datasource:
+        ds1:
+          nacos:
+            # Nacos server address for Sentinel rule persistence
+            server-addr: 127.0.0.1:8848
+            # Data ID for the Sentinel rules
+            dataId: sentinel-scoder-gateway
+            # Group ID for the Sentinel rules
+            groupId: DEFAULT_GROUP
+            # Data type for Sentinel rules
+            data-type: json
+            # Rule type for Sentinel (e.g., flow control rules)
+            rule-type: flow

@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.scoder.common.security.service.TokenService,\
+  com.scoder.common.security.aspect.PreAuthorizeAspect,\
+  com.scoder.common.security.handler.GlobalExceptionHandler

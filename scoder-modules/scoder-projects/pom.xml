@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Maven project configuration file -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Specify Maven model version -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent project configuration -->
+    <parent>
+        <groupId>com.scoder</groupId>
+        <artifactId>scoder-modules</artifactId>
+        <version>2.5.0</version>
+    </parent>
+
+    <!-- Artifact ID for the current module -->
+    <artifactId>scoder-modules-projects</artifactId>
+
+    <!-- Dependencies required by this module -->
+    <dependencies>
+        <!-- Nacos discovery for service registration and discovery -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- Nacos configuration for centralized configuration management -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- Sentinel for circuit breaker and monitoring -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Actuator for application monitoring and management -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- MySQL database driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Scoder's common data source configuration -->
+        <dependency>
+            <groupId>com.scoder</groupId>
+            <artifactId>scoder-common-datasource</artifactId>
+        </dependency>
+
+        <!-- Scoder's common data scope functionality -->
+        <dependency>
+            <groupId>com.scoder</groupId>
+            <artifactId>scoder-common-datascope</artifactId>
+        </dependency>
+
+        <!-- Scoder's common logging configuration -->
+        <dependency>
+            <groupId>com.scoder</groupId>
+            <artifactId>scoder-common-log</artifactId>
+        </dependency>
+
+        <!-- Scoder's common Swagger integration for API documentation -->
+        <dependency>
+            <groupId>com.scoder</groupId>
+            <artifactId>scoder-common-swagger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.scoder</groupId>
+            <artifactId>scoder-api-im</artifactId>
+            <version>2.5.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Build configuration for the project -->
+    <build>
+        <!-- Specify the final name of the generated artifact -->
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <!-- Spring Boot Maven plugin for building executable JARs -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
