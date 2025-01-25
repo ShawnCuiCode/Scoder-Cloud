@@ -164,7 +164,8 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements Te
         teamVoList.forEach(teamVo -> {
             Team team = teamMapper.selectOne(new LambdaQueryWrapper<Team>().eq(Team::getTeam, teamVo.getTeam()));
             BeanUtils.copyProperties(team, teamVo);
-            teamVo.setRadarImg("http://127.0.0.1:9204/statics/" + teamVo.getRadarImg());
+//            teamVo.setRadarImg("http://127.0.0.1:9204/statics/" + teamVo.getRadarImg());
+            teamVo.setRadarImg("http://scoder.co.uk:9204/statics/" + teamVo.getRadarImg());
             teamVo.setRadarImg(teamVo.getRadarImg().replace("/images", ""));
             TeamUser teamUser = teamUserMapper.selectOne(new LambdaQueryWrapper<TeamUser>().eq(TeamUser::getTeamId, teamVo.getTeamId()).eq(TeamUser::getUserId, userId));
             teamVo.setIsJoined(teamUser == null ? 0 : 1);
@@ -190,7 +191,8 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team> implements Te
      * @return The output of the R script as a String.
      */
     private String calculateTeamMatches(String matchJson) {
-        String rScriptPath = "/Users/lanzy/IdeaProjects/Scoder-Cloud/scoder-modules/scoder-projects/src/main/java/com/scoder/projects/service/impl/Recommend.R";
+//        String rScriptPath = "/Users/lanzy/IdeaProjects/Scoder-Cloud/scoder-modules/scoder-projects/src/main/java/com/scoder/projects/service/impl/Recommend.R";
+        String rScriptPath = "/home/scoder/Recommend.R";
         String result = "";
         try {
             String[] cmd = {
