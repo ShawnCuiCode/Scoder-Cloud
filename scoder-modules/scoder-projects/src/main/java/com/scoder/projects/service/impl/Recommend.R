@@ -120,7 +120,7 @@ simplified_results <- lapply(results, function(team) {
   RadarImg <- if (!is.null(team$RadarImg) && team$RadarImg != "") {
     as.character(team$RadarImg)
   } else {
-    NULL # 使用 NULL 表示字段为空
+    NULL
   }
   list(
     Team = team$Team,
