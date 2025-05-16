@@ -9,4 +9,5 @@ import lombok.EqualsAndHashCode;
 public class GroupVo extends Group {
     private String content;
     private Long time;
+    private String senderName;
 }

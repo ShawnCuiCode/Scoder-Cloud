@@ -9,4 +9,5 @@ import lombok.EqualsAndHashCode;
 public class ChatMessageVo extends ChatMessage {
     private String nickName;
     private String avatar;
+    private String senderName;
 }
